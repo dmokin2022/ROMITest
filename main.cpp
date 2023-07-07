@@ -3,12 +3,14 @@
 #include "Message.h"
 #include <QDebug>
 
-#define TEST_INPUT_MESSAGE       "12345678abcdefghABCDEFGH"
-#define TEST_OUTPUT_MESSAGE "HELLO23456789bcdefghiBCDEFGHI"
+#define TEST_INPUT_MESSAGE       ".,!?-=+/12345678abcdefghABCDEFGH"
+#define TEST_OUTPUT_MESSAGE "HELLO.,!?-=+/23456789bcdefghiBCDEFGHI"
 
 bool testMessage() {
     Message message(TEST_INPUT_MESSAGE);
-    if (message.encryptToQString() == TEST_OUTPUT_MESSAGE) {
+    QString outputString = message.encryptToQString();
+    qDebug() << TEST_INPUT_MESSAGE << "->" << outputString;
+    if (outputString == TEST_OUTPUT_MESSAGE) {
         qDebug() << "Coding successfull";
         return true;
     } else {

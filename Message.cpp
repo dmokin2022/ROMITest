@@ -14,11 +14,12 @@ QString &Message::encryptToQString() {
     outputString = MESSAGE_HEADER;
 
     for (auto simbol : inputString) {
+        auto code =  simbol.unicode();
         if (simbol.isDigit() || simbol.isLetter()) {
-            auto code =  simbol.unicode();
-            QChar newSimbol(code + 1);
-            outputString.append(newSimbol);
+            code++;
         }
+        QChar newSimbol(code);
+        outputString.append(newSimbol);
     }
     return outputString;
 }
