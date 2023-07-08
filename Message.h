@@ -13,12 +13,14 @@ public:
 
     const char *encrypt();
     QString &encryptToQString();
+    int size();
 
 signals:
 
 private:
     QString inputString;
     QString outputString;
+    int outputStringSize;
 };
 
 #endif // MESSAGE_H

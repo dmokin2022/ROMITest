@@ -16,7 +16,7 @@ public slots:
     void sendToAll(const char *data, int length);
 
 signals:
-
+    void bytesWritten(qint64 bytes);
 
 
 private:

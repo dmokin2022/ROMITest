@@ -23,6 +23,8 @@ add_executable(ROMITest
   ComportConnector.cpp
   UdpConnector.h
   UdpConnector.cpp
+  Device.h
+  Device.cpp
 )
 target_link_libraries(ROMITest PRIVATE Qt5::Core Qt5::Network)
 #target_link_libraries(ROMITest PRIVATE Qt5::Network)

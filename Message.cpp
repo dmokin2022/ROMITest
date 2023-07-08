@@ -21,5 +21,11 @@ QString &Message::encryptToQString() {
         QChar newSimbol(code);
         outputString.append(newSimbol);
     }
+
+    outputStringSize = outputString.size();
     return outputString;
+}
+
+int Message::size() {
+    return outputStringSize;
 }

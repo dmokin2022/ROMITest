@@ -1,8 +1,8 @@
 #include "ComportConnector.h"
 #include <QDebug>
 
-ComportConnector::ComportConnector(QObject *parent) : QObject(parent) {
-
+ComportConnector::ComportConnector(const QString &comport, QObject *parent) : QObject(parent) {
+    initPort(comport);
     timer = new QTimer();
 
     connect(timer, &QTimer::timeout, this, [this]() {

@@ -16,7 +16,7 @@ class ComportConnector : public QObject
 {
     Q_OBJECT
 public:
-    explicit ComportConnector(QObject *parent = nullptr);
+    explicit ComportConnector(const QString &comport, QObject *parent = nullptr);
 
     void initPort(QString portName);
 signals:

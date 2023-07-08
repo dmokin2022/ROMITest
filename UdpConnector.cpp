@@ -9,6 +9,7 @@ void UdpConnector::initSocket() {
     //udpSocket->bind(QHostAddress::LocalHost, 7755);
     udpSocket->bind(QHostAddress::Broadcast, UDP_PORT);
     //connect(udpSocket, &QUdpSocket::readyRead, this, &UdpConnector::readPendingDatagrams);
+    connect(udpSocket, &QUdpSocket::bytesWritten, this, &UdpConnector::bytesWritten);
 }
 
 void UdpConnector::sendToAll(const char *data, int length) {
