@@ -8,11 +8,13 @@ set(CMAKE_AUTOUIC ON)
 set(CMAKE_AUTOMOC ON)
 set(CMAKE_AUTORCC ON)
 
-set(CMAKE_CXX_STANDARD 11)
+set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 #find_package(Qt5Core)
-find_package(Qt5 COMPONENTS Core SerialPort Network REQUIRED)
+find_package(Qt5 COMPONENTS Core SerialPort REQUIRED)
+find_package(QT NAMES Qt6 Qt5 REQUIRED COMPONENTS Network)
+find_package(Qt${QT_VERSION_MAJOR} REQUIRED COMPONENTS Network)
 #find_package(Qt5Core REQUIRED COMPONENTS Network)
 
 add_executable(ROMITest
@@ -25,9 +27,10 @@ add_executable(ROMITest
   UdpConnector.cpp
   Device.h
   Device.cpp
+  Config.h
 )
-target_link_libraries(ROMITest PRIVATE Qt5::Core Qt5::Network)
+target_link_libraries(ROMITest PRIVATE Qt5::Core Qt${QT_VERSION_MAJOR}::Network)
 #target_link_libraries(ROMITest PRIVATE Qt5::Network)
-
+#target_link_libraries(ROMITest Qt${QT_VERSION_MAJOR}::Network)
 
 qt5_use_modules(ROMITest Core SerialPort)
