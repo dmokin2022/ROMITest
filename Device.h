@@ -23,7 +23,7 @@ signals:
 private:
     ComportConnector *comport;
     UdpConnector *udp;
-    QQueue<Message*> queue;    // Очередь не потребуется так как QUdpSocket создаёт собственную очередь на отправку
+    QQueue<Message*> queue;
 };
 
 #endif // DEVICE_H

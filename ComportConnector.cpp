@@ -19,11 +19,10 @@ void ComportConnector::initPort(QString portName) {
     serialPort->setStopBits(QSerialPort::OneStop);   // остановка
     serialPort->setFlowControl(QSerialPort::NoFlowControl); // Управление потоком обычно бесполезно
 
-    // [2] последовательный порт
     if (serialPort->open(QIODevice::ReadWrite)) {
-        qDebug()<< "Последовательный порт" << portName << "был открыт, режим чтения и записи";
+        qDebug()<< "Serial port" << portName << "was open, read/write mode";
     } else {
-        qDebug()<< "Ошибка открытия серийного порта" << portName << serialPort->errorString();
+        qDebug()<< "Serial port port open error" << portName << serialPort->errorString();
         serialPort->clearError();
     }
 

@@ -23,6 +23,6 @@ void Device::onReceivedByComport(const QString &inputString) {
 }
 
 void Device::deleteMessageFromQueue() {
-    delete queue.head();
-    queue.dequeue();
+    if (queue.head() != nullptr) delete queue.head();
+    if (!queue.isEmpty()) queue.dequeue();
 }

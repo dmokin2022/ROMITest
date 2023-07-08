@@ -3,6 +3,8 @@
 #include "Message.h"
 #include <QDebug>
 
+#include "Device.h"
+
 #define TEST_INPUT_MESSAGE       ".,!?-=+/12345678abcdefghABCDEFGH"
 #define TEST_OUTPUT_MESSAGE "HELLO.,!?-=+/23456789bcdefghiBCDEFGHI"
 
@@ -19,13 +21,23 @@ bool testMessage() {
     }
 }
 
+#define DEFAULT_COMPORT "COM1"
+//#define DEFAULT_COMPORT "/dev/tty"
 
 int main(int argc, char *argv[])
 {
     QCoreApplication a(argc, argv);
 
-    if (testMessage()) return 0;
-    else return -1;
+    qDebug() << QString::number(argc) << QString(argv[0]);
+
+    const char *comPortName = DEFAULT_COMPORT;
+    if (argc > 1) {
+        comPortName = argv[1];
+    }
+
+    Device(QString(comPortName));
+
+    testMessage();
 
     return a.exec();
 }
