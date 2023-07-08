@@ -12,7 +12,8 @@ set(CMAKE_CXX_STANDARD 11)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 #find_package(Qt5Core)
-find_package(Qt5Core  COMPONENTS Qt5SerialPort REQUIRED)
+find_package(Qt5 COMPONENTS Core SerialPort Network REQUIRED)
+#find_package(Qt5Core REQUIRED COMPONENTS Network)
 
 add_executable(ROMITest
   main.cpp
@@ -20,7 +21,11 @@ add_executable(ROMITest
   Message.cpp
   ComportConnector.h
   ComportConnector.cpp
+  UdpConnector.h
+  UdpConnector.cpp
 )
-target_link_libraries(ROMITest Qt5::Core)
+target_link_libraries(ROMITest PRIVATE Qt5::Core Qt5::Network)
+#target_link_libraries(ROMITest PRIVATE Qt5::Network)
+
 
 qt5_use_modules(ROMITest Core SerialPort)

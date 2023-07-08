@@ -9,6 +9,7 @@
 
 #define COMPORT_TIMEOUT 5000 //миллисекунды
 #define END_OF_STRING_SYMBOL "\r"
+#define COMPORT_BITRATE 115200
 
 
 class ComportConnector : public QObject
