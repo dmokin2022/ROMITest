@@ -9,11 +9,16 @@
 #include <QObject>
 #include <QQueue>
 
+#define MAX_STRING_COUNT 10
+
 class Device : public QObject
 {
     Q_OBJECT
 public:
     explicit Device(const QString &porname, QObject *parent = nullptr);
+
+public slots:
+    void reset();
 
 private slots:
     void onReceivedByComport(const QString &inputString);
@@ -24,6 +29,7 @@ private:
     ComportConnector *comport;
     UdpConnector *udp;
     QQueue<Message*> queue;
+    int inputStringCounter;
 };
 
 #endif // DEVICE_H

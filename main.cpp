@@ -28,8 +28,6 @@ int main(int argc, char *argv[])
 {
     QCoreApplication a(argc, argv);
 
-    qDebug() << QString::number(argc) << QString(argv[0]);
-
     const char *comPortName = DEFAULT_COMPORT;
     if (argc > 1) {
         comPortName = argv[1];

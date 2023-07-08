@@ -1,7 +1,9 @@
 #include "Device.h"
 
 
-Device::Device(const QString &porname, QObject *parent) : QObject(parent){
+Device::Device(const QString &porname, QObject *parent) : QObject(parent) {
+    reset();
+
     // Подключение модуля com-порта
     comport = new ComportConnector(porname, this);
     connect(comport, &ComportConnector::ready, this, &Device::onReceivedByComport);
@@ -12,8 +14,15 @@ Device::Device(const QString &porname, QObject *parent) : QObject(parent){
     connect(udp, &UdpConnector::bytesWritten, this, &Device::deleteMessageFromQueue);
 }
 
+void Device::reset(){
+    inputStringCounter = 0;
+}
+
 
 void Device::onReceivedByComport(const QString &inputString) {
+    if (inputStringCounter >= MAX_STRING_COUNT) return;
+
+    inputStringCounter++;
     auto message = new Message(inputString);
     queue.enqueue(message);
 
