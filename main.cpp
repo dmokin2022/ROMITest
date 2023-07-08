@@ -21,9 +21,6 @@ bool testMessage() {
     }
 }
 
-#define DEFAULT_COMPORT "COM1"
-//#define DEFAULT_COMPORT "/dev/tty"
-
 int main(int argc, char *argv[])
 {
     QCoreApplication a(argc, argv);

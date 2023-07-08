@@ -3,8 +3,7 @@
 
 #include <QObject>
 #include <QtNetwork/QUdpSocket>
-
-#define UDP_PORT 1000
+#include "Config.h"
 
 class UdpConnector : public QObject
 {

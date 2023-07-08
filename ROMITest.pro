@@ -25,7 +25,9 @@ HEADERS += \
     Message.h \
     ComportConnector.h \
     UdpConnector.h \
-    Device.h
+    Device.h \
+    Config.h
+
     #serialport/qserialport.h
 
 

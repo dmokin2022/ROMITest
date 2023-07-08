@@ -7,9 +7,8 @@
 #include <QtSerialPort/QSerialPort>
 #include <QtSerialPort/QSerialPortInfo>
 
-#define COMPORT_TIMEOUT 5000 //миллисекунды
-#define END_OF_STRING_SYMBOL "\r"
-#define COMPORT_BITRATE 115200
+#include "Config.h"
+
 
 
 class ComportConnector : public QObject

@@ -9,7 +9,7 @@
 #include <QObject>
 #include <QQueue>
 
-#define MAX_STRING_COUNT 10
+#include "Config.h"
 
 class Device : public QObject
 {

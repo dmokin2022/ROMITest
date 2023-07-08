@@ -3,7 +3,7 @@
 
 #include <QObject>
 
-#define MESSAGE_HEADER "HELLO"
+#include "Config.h"
 
 class Message : public QObject
 {
