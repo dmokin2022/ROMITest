@@ -11,11 +11,16 @@ set(CMAKE_AUTORCC ON)
 set(CMAKE_CXX_STANDARD 11)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
-find_package(Qt5Core)
+#find_package(Qt5Core)
+find_package(Qt5Core  COMPONENTS Qt5SerialPort REQUIRED)
 
 add_executable(ROMITest
   main.cpp
   Message.h
   Message.cpp
+  ComportConnector.h
+  ComportConnector.cpp
 )
 target_link_libraries(ROMITest Qt5::Core)
+
+qt5_use_modules(ROMITest Core SerialPort)
